@@ -11,6 +11,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://fakestoreapi.com/") });
 
 var app = builder.Build();
 

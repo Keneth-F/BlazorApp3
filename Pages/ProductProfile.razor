@@ -1,6 +1,28 @@
 ﻿@page "/product-profile"
 <h2>Product Profile</h2>
-<div class="container d-flex gap-2">
-    <ProductDetails Product="Product" />
-    <ProductDetails />
-</div>
+
+
+    
+    <form class="mb-3" @onsubmit="SearchProducts">
+        <input type="text" @bind="SearchTerm" placeholder="Search product..." class="form-control" />
+        <button class="btn btn-primary mt-2" type="submit">Search</button>
+    </form>
+    @if (SearchResults== null)
+    {
+        <span class="loader text-center"></span>
+    }else 
+    @if (SearchResults.Any())
+    {
+        <div class="d-flex flex-wrap gap-2">
+            @foreach (var product in SearchResults)
+            {
+                <ProductCard Product="product" />
+            }
+        </div>
+    }
+    else
+    {
+         <ProductCard />
+    }
+
+   

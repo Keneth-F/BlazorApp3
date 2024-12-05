@@ -1,0 +1,23 @@
+﻿@if (Product != null)
+{
+    <a href="/product-profile/@Product.Id" style="text-decoration:inherit;">
+
+    <div class="card p-1" style="width: 18rem;">
+        <img src="@Product.Image" class="card-img-top" style="height:250px; object-fit:contain;" alt="@Product.Title">
+        <div class="card-body">
+            <h5 class="card-title text-truncate">@Product.Title</h5>
+            <p class="card-text description text-truncate">@Product.Description</p>
+        </div>
+    </div>
+    </a>
+}
+else
+{
+    <div class="card mt-3" style="width: 18rem;">
+
+        <div class="card-body">
+            <p class="text-muted">No hay información disponible del producto.</p>
+        </div>
+    </div>
+}
+
